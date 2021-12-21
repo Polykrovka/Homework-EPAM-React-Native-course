@@ -1,14 +1,18 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {NavBar} from './src/components/Nav-bar';
+import {SearchInput} from './src/components/Search-input';
+import {Card} from './src/components/Card';
+import mockCards from './src/components/mockCards';
+
+const RenderCards = mockCards.map(item => <Card data={item} />);
 
 const App = () => {
   return (
     <View style={styles.main}>
       <NavBar />
-      <View style={styles.mainWrapper}>
-        <Text>Check </Text>
-      </View>
+      <SearchInput />
+      <View style={styles.cardsWrapper}>{RenderCards}</View>
     </View>
   );
 };
@@ -16,13 +20,14 @@ const App = () => {
 const styles = StyleSheet.create({
   main: {
     alignItems: 'center',
+    backgroundColor: 'white',
   },
-  mainWrapper: {
-    color: 'red',
+  cardsWrapper: {
     width: '90%',
-    height: '100%',
-    backgroundColor: 'black',
-    zIndex: 1,
+    marginTop: 20,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
   },
 });
 
