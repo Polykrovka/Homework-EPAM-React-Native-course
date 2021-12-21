@@ -5,7 +5,7 @@ import {NavBar} from './src/components/Nav-bar';
 const App = () => {
   return (
     <View style={styles.main}>
-      <NavBar mainWrapper={styles.mainWrapper} />
+      <NavBar />
       <View style={styles.mainWrapper}>
         <Text>Check </Text>
       </View>
@@ -18,8 +18,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   mainWrapper: {
+    color: 'red',
     width: '90%',
+    height: '100%',
     backgroundColor: 'black',
+    zIndex: 1,
   },
 });
 
