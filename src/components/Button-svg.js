@@ -1,20 +1,13 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
-import {TouchableHighlight, View, GestureResponderEvent} from 'react-native';
-import Svg, {Path} from 'react-native-svg';
-import IconBurgerMenu from '../images/icons/Icon-Burger-Menu.svg'
+import {TouchableHighlight, View} from 'react-native';
 
-export function ButtonSVG({onPress}) {
-  const lineProps = {
-    strokeOpacity: 1,
-    strokeWidth: 1,
-    strokeLineCap: 'round',
-    strokeLineJoin: 'round',
-  };
-
+export function ButtonSVG(props) {
+  const Icon = props.icon;
   return (
-    <TouchableHighlight>
-      <View style={{width: 25, height: 25, backgroundColor: 'black'}}>
-        {/* <IconBurgerMenu width={25} height={25} /> */}
+    <TouchableHighlight style={{width: 25, height: 25, paddingLeft: 15, paddingRight: 40,}}>
+      <View >
+        <Icon />
       </View>
     </TouchableHighlight>
   );
