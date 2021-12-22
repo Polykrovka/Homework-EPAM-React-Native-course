@@ -4,16 +4,18 @@ import {View, StyleSheet, Image, Text} from 'react-native';
 import {commonStyles} from '../styles/common-styles';
 
 export function Card(props) {
-
+  //This is the formula for calculating the discount. Unfortunately,
+  //there are no discounts in our data, but I'll leave it for the future.
+  const discount = ` ${((props.data.price - props.data.price) / props.data.price) * 100} %Off`;
   return (
     <View style={styles.card} >
       <View style={styles.cardWrapper}>
-        <Image style={styles.cardImg} source={props.data.img}/>
-        <Text style={styles.cardName}>{props.data.name}</Text>
+        <Image style={styles.cardImg} source={props.icon}/>
+        <Text numberOfLines={1} style={styles.cardName}>{props.data.name}</Text>
         <View style={styles.priceString}>
-          <Text style={styles.discountPrice}>${props.data.discountPrice}   </Text>
-          {props.data.price && <Text style={styles.price}>${props.data.price}</Text>}
-          {props.data.discountPercent && <Text style={styles.discountPercent}>   {props.data.discountPercent}% Off</Text>}
+          <Text style={styles.discountPrice}>{props.data.display_price} </Text>
+          <Text style={styles.price}>{props.data.display_price}</Text>
+          <Text style={styles.discountPercent}> {discount}</Text>
         </View>
       </View>
     </View>
@@ -35,6 +37,7 @@ const styles = StyleSheet.create({
     cardName: {
       marginTop: 5,
       fontSize: 15,
+      color: '#4A4A4A',
     },
     priceString: {
       flexDirection: 'row',
@@ -43,18 +46,18 @@ const styles = StyleSheet.create({
     discountPrice: {
       color: '#4A4A4A',
       fontWeight: 'bold',
-      fontSize: 15,
+      fontSize: 14,
     },
     price: {
       color: '#8F8F8F',
       fontWeight: 'bold',
-      fontSize: 15,
+      fontSize: 14,
       textDecorationLine: 'line-through',
     },
     discountPercent: {
       color: '#00A8F3',
       fontWeight: 'bold',
-      fontSize: 15,
+      fontSize: 14,
     },
     cardImg: {
       height: 100,

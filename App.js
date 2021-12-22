@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {StyleSheet, View, ScrollView} from 'react-native';
 import {NavBar} from './src/components/Nav-bar';
 import {NavBarDetails} from './src/components/Nav-bar-details';
@@ -7,26 +7,43 @@ import {Card} from './src/components/Card';
 import mockCards from './src/components/mockCards';
 import {CardLarge} from './src/components/Card-Large';
 
-const RenderCards = mockCards.map(item => <Card key={item.name} data={item} />);
+const BASE_URL = 'https://demo.spreecommerce.org';
+const API_PATH = `${BASE_URL}/api/v2/storefront/products`;
 
 const App = () => {
+  const [backData, getBackData] = useState();
+
+  useEffect(() => {
+    fetch(API_PATH)
+      .then(response => response.json())
+      .then(data => getBackData(data));
+  }, []);
+
+  const RenderCards = backData?.data.map(item => (
+    <Card
+      key={item.attributes.name}
+      data={item.attributes}
+      icon={{uri: 'https://picsum.photos/100'}}
+    />
+  ));
+
   return (
-    // <ScrollView
-    //   contentContainerStyle={{alignItems: 'center'}}
-    //   style={styles.main}>
-    //   <NavBar />
-    //   <SearchInput />
-    //   <View style={styles.cardsWrapper}>{RenderCards}</View>
-    // </ScrollView>
-    //============================
     <ScrollView
-      style={styles.main}
-      contentContainerStyle={{alignItems: 'center'}}>
-      <NavBarDetails />
-      <View style={styles.cardsWrapper}>
-        <CardLarge data={mockCards[0]} />
-      </View>
+      contentContainerStyle={{alignItems: 'center'}}
+      style={styles.main}>
+      <NavBar />
+      <SearchInput />
+      <View style={styles.cardsWrapper}>{RenderCards}</View>
     </ScrollView>
+    //============================
+    // <ScrollView
+    //   style={styles.main}
+    //   contentContainerStyle={{alignItems: 'center'}}>
+    //   <NavBarDetails />
+    //   <View style={styles.cardsWrapper}>
+    //     <CardLarge data={mockCards[0]} />
+    //   </View>
+    // </ScrollView>
   );
 };
 
