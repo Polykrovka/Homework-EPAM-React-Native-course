@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, View, ScrollView} from 'react-native';
+import {StyleSheet, View, ScrollView, RefreshControl} from 'react-native';
 import {NavBar} from './src/components/Nav-bar';
 import {NavBarDetails} from './src/components/Nav-bar-details';
 import {SearchInput} from './src/components/Search-input';
@@ -9,6 +9,10 @@ import {CardLarge} from './src/components/Card-Large';
 
 const BASE_URL = 'https://demo.spreecommerce.org';
 const API_PATH = `${BASE_URL}/api/v2/storefront/products`;
+
+const wait = timeout => {
+  return new Promise(resolve => setTimeout(resolve, timeout));
+};
 
 const App = () => {
   const [backData, getBackData] = useState();
@@ -27,9 +31,19 @@ const App = () => {
     />
   ));
 
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    wait(2000).then(() => setRefreshing(false));
+  }, []);
+
   return (
     <ScrollView
       contentContainerStyle={{alignItems: 'center'}}
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }
       style={styles.main}>
       <NavBar />
       <SearchInput />
