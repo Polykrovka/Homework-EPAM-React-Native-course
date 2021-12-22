@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {ButtonSVG} from './Button-svg';
 import IconVector from '../images/icons/Icon-Vector.svg';
 import IconBasket from '../images/icons/Icon-Basket.svg';
