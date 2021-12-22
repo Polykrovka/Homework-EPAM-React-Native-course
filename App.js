@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {NavBar} from './src/components/Nav-bar';
+import {NavBarDetails} from './src/components/Nav-bar-details';
 import {SearchInput} from './src/components/Search-input';
 import {Card} from './src/components/Card';
 import mockCards from './src/components/mockCards';
@@ -9,10 +10,14 @@ const RenderCards = mockCards.map(item => <Card key={item.name} data={item} />);
 
 const App = () => {
   return (
+    // <View style={styles.main}>
+    //   <NavBar />
+    //   <SearchInput />
+    //   <View style={styles.cardsWrapper}>{RenderCards}</View>
+    // </View>
+    //============================
     <View style={styles.main}>
-      <NavBar />
-      <SearchInput />
-      <View style={styles.cardsWrapper}>{RenderCards}</View>
+      <NavBarDetails />
     </View>
   );
 };
