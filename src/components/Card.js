@@ -6,7 +6,7 @@ import {commonStyles} from '../styles/common-styles';
 export function Card(props) {
 
   return (
-    <View style={styles.card} key={new Date().toString()}>
+    <View style={styles.card} >
       <View style={styles.cardWrapper}>
         <Image style={styles.cardImg} source={props.data.img}/>
         <Text style={styles.cardName}>{props.data.name}</Text>

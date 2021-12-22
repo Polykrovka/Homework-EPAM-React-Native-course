@@ -5,7 +5,7 @@ import {SearchInput} from './src/components/Search-input';
 import {Card} from './src/components/Card';
 import mockCards from './src/components/mockCards';
 
-const RenderCards = mockCards.map(item => <Card data={item} />);
+const RenderCards = mockCards.map(item => <Card key={item.name} data={item} />);
 
 const App = () => {
   return (
