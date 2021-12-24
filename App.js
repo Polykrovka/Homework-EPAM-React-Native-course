@@ -25,14 +25,18 @@ const App = () => {
 
   const RenderCards = backData?.data.map(item => (
     <Card
+      // according to API docs, item has ID field. I would alway suggest to use it instead of name since it is stable and unique
       key={item.attributes.name}
       data={item.attributes}
+      // This object variable is recreated on every render. Better to move it in constants or at least in useMemo
       icon={{uri: 'https://picsum.photos/100'}}
     />
   ));
 
   const [refreshing, setRefreshing] = React.useState(false);
 
+  // This solution is OK, but it is not actually refreshing data :)
+  // Since you have a real request to get data, you can call it on pull-to-refresh
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     wait(2000).then(() => setRefreshing(false));
@@ -40,11 +44,13 @@ const App = () => {
 
   return (
     <ScrollView
+      // I would propose to always use Stylesheet.Create
       contentContainerStyle={{alignItems: 'center'}}
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
       }
       style={styles.main}>
+      {/*Good Idea is to put NavBar out of ScrollView so only content under NavBar would be scrollable  */}
       <NavBar />
       <SearchInput />
       <View style={styles.cardsWrapper}>{RenderCards}</View>
@@ -66,7 +72,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   cardsWrapper: {
+    // It might be an acceptable solution, but looks like paddingHorizontal works here better
     width: '90%',
+    // Also I would say that padding works better here.
     marginTop: 20,
     flexDirection: 'row',
     flexWrap: 'wrap',

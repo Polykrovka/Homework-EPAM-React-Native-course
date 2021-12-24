@@ -1,11 +1,14 @@
-/* eslint-disable prettier/prettier */
+/* eslint-disable prettier/prettier */ // This is always bad :) What happened with prettier here?
 import React from 'react';
 import {View, StyleSheet, Image, Text} from 'react-native';
 import {commonStyles} from '../styles/common-styles';
 
+// You can use destructuring here
 export function Card(props) {
   //This is the formula for calculating the discount. Unfortunately,
   //there are no discounts in our data, but I'll leave it for the future.
+
+  // Better to put all calculations in useMemo
   const discount = ` ${((props.data.price - props.data.price) / props.data.price) * 100} %Off`;
   return (
     <View style={styles.card} >

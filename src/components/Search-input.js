@@ -7,6 +7,7 @@ import IconSearch from '../images/icons/Icon-Search.svg';
 export const SearchInput = () => {
   return (
     <View style={styles.searchInput}>
+      {/* Again, you can use only one wrapper view */}
       <View style={styles.wrapper}>
         <TextInput style={styles.textInput} />
         <IconSearch style={styles.iconSearch} />

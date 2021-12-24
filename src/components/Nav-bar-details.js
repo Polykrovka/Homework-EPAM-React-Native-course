@@ -4,6 +4,7 @@ import {StyleSheet, View} from 'react-native';
 import {ButtonSVG} from './Button-svg';
 import IconVector from '../images/icons/Icon-Vector.svg';
 import IconBasket from '../images/icons/Icon-Basket.svg';
+// Typo here
 import IconHurn from '../images/icons/Icon-Hurt.svg';
 
 export const NavBarDetails = () => {

@@ -11,6 +11,7 @@ export function CardLarge(props) {
 
   return (
     <View style={styles.card} >
+      {/* carousel */}
       <View style={styles.carusel}>
         <ButtonSVG icon={IconNextL}/>
         <Image style={styles.cardImg} source={require('../images/mobiles/card-1-large.png')}/>
@@ -20,7 +21,10 @@ export function CardLarge(props) {
       <Text style={styles.cardName}>{props.data.name}</Text>
       <View style={styles.priceString}>
         <Text style={styles.discountPrice}>${props.data.discountPrice}   </Text>
+        {/* If price is '0' value, then you will see '0' on your screen. Better to cast it to Boolean */}
+        {/* Boolean(props.data.price) or simply !!props.data.price */}
         {props.data.price && <Text style={styles.price}>${props.data.price}</Text>}
+        {/* Same here */}
         {props.data.discountPercent && <Text style={styles.discountPercent}>   {props.data.discountPercent}% Off</Text>}
       </View>
       <Text  style={styles.selectStore} >Select Color</Text>

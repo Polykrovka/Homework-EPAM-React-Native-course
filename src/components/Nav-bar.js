@@ -8,6 +8,7 @@ import IconBasket from '../images/icons/Icon-Basket.svg';
 export const NavBar = () => {
   return (
     <View style={styles.navBar}>
+      {/* You already have navBar view. There is no need to make additional wrapper */}
       <View style={styles.wrapper}>
         <ButtonSVG icon={IconBurgerMenu}/>
         <Text style={styles.titleHeader}> Ecommerce Store </Text>
@@ -32,6 +33,7 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     height: '100%',
+    // You can use padding here. It will more useful on most cases
     width: '90%',
     justifyContent: 'space-between',
     flexDirection: 'row',
