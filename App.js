@@ -18,10 +18,14 @@ const wait = timeout => {
 const App = () => {
   const [backData, getBackData] = useState();
 
-  useEffect(() => {
+  function fetchRequest() {
     fetch(API_PATH)
       .then(response => response.json())
       .then(data => getBackData(data));
+  }
+
+  useEffect(() => {
+    fetchRequest();
   }, []);
 
   const RenderCards = backData?.data.map(item => (
@@ -33,6 +37,7 @@ const App = () => {
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     wait(2000).then(() => setRefreshing(false));
+    fetchRequest();
   }, []);
 
   return (
