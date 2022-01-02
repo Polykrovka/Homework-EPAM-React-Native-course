@@ -42,7 +42,7 @@ const App = () => {
 
   return (
     <ScrollView
-      contentContainerStyle={{alignItems: 'center'}}
+      contentContainerStyle={styles.contentContainerStyle}
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
       }
@@ -54,7 +54,7 @@ const App = () => {
     //============================
     // <ScrollView
     //   style={styles.main}
-    //   contentContainerStyle={{alignItems: 'center'}}>
+    //   contentContainerStyle={styles.contentContainerStyle}>
     //   <NavBarDetails />
     //   <View style={styles.cardsWrapper}>
     //     <CardLarge data={mockCards[0]} />
@@ -66,6 +66,9 @@ const App = () => {
 const styles = StyleSheet.create({
   main: {
     backgroundColor: 'white',
+  },
+  contentContainerStyle: {
+    alignItems: 'center',
   },
   cardsWrapper: {
     width: '90%',
