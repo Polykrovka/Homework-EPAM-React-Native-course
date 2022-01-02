@@ -6,10 +6,14 @@ import {SearchInput} from './src/components/Search-input';
 import {Card} from './src/components/Card';
 import mockCards from './src/components/mockCards';
 import {CardLarge} from './src/components/Card-Large';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { MainScreen } from './src/pages/Main-screen';
 
 const randomPick = {uri: 'https://picsum.photos/100'};
 const BASE_URL = 'https://demo.spreecommerce.org';
 const API_PATH = `${BASE_URL}/api/v2/storefront/products`;
+const Stack = createNativeStackNavigator();
 
 const wait = timeout => {
   return new Promise(resolve => setTimeout(resolve, timeout));
@@ -41,18 +45,9 @@ const App = () => {
   }, []);
 
   return (
-    <>
-      <NavBar />
-      <ScrollView
-        contentContainerStyle={styles.contentContainerStyle}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }
-        style={styles.main}>
-        <SearchInput />
-        <View style={styles.cardsWrapper}>{RenderCards}</View>
-      </ScrollView>
-    </>
+    <NavigationContainer>
+      <MainScreen />
+    </NavigationContainer>
     //============================
     // <ScrollView
     //   style={styles.main}
