@@ -1,13 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, View, ScrollView, RefreshControl} from 'react-native';
 import {NavBar} from '../../src/components/Nav-bar';
-import {NavBarDetails} from '../../src/components/Nav-bar-details';
 import {SearchInput} from '../../src/components/Search-input';
 import {Card} from '../../src/components/Card';
-import mockCards from '../../src/components/mockCards';
-import {CardLarge} from '../../src/components/Card-Large';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const randomPick = {uri: 'https://picsum.photos/100'};
 const BASE_URL = 'https://demo.spreecommerce.org';
@@ -56,7 +52,6 @@ export const MainScreen = () => {
         <View style={styles.cardsWrapper}>{RenderCards}</View>
       </ScrollView>
     </>
-
   );
 };
 
@@ -75,4 +70,3 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
 });
-
