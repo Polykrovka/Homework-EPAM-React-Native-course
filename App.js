@@ -7,6 +7,7 @@ import {Card} from './src/components/Card';
 import mockCards from './src/components/mockCards';
 import {CardLarge} from './src/components/Card-Large';
 
+const randomPick = {uri: 'https://picsum.photos/100'};
 const BASE_URL = 'https://demo.spreecommerce.org';
 const API_PATH = `${BASE_URL}/api/v2/storefront/products`;
 
@@ -24,11 +25,7 @@ const App = () => {
   }, []);
 
   const RenderCards = backData?.data.map(item => (
-    <Card
-      key={item.attributes.name}
-      data={item.attributes}
-      icon={{uri: 'https://picsum.photos/100'}}
-    />
+    <Card key={item.attributes.name} data={item.attributes} icon={randomPick} />
   ));
 
   const [refreshing, setRefreshing] = React.useState(false);
