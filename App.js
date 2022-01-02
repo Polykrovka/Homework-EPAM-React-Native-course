@@ -25,7 +25,7 @@ const App = () => {
   }, []);
 
   const RenderCards = backData?.data.map(item => (
-    <Card key={item.attributes.name} data={item.attributes} icon={randomPick} />
+    <Card key={item.id} data={item.attributes} icon={randomPick} />
   ));
 
   const [refreshing, setRefreshing] = React.useState(false);
