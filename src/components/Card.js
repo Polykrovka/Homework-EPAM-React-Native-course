@@ -3,17 +3,18 @@ import {View, StyleSheet, Image, Text} from 'react-native';
 import {commonStyles} from '../styles/common-styles';
 
 export function Card(props) {
+  const {price, name, display_price} = props.data;
   //This is the formula for calculating the discount. Unfortunately,
   //there are no discounts in our data, but I'll leave it for the future.
-  const discount = ` ${((props.data.price - props.data.price) / props.data.price) * 100} %Off`;
+  const discount = ` ${((price - price) / price) * 100} %Off`;
   return (
     <View style={styles.card} >
       <View style={styles.cardWrapper}>
         <Image style={styles.cardImg} source={props.icon}/>
-        <Text numberOfLines={1} style={styles.cardName}>{props.data.name}</Text>
+        <Text numberOfLines={1} style={styles.cardName}>{name}</Text>
         <View style={styles.priceString}>
-          <Text style={styles.discountPrice}>{props.data.display_price} </Text>
-          <Text style={styles.price}>{props.data.display_price}</Text>
+          <Text style={styles.discountPrice}>{display_price} </Text>
+          <Text style={styles.price}>{display_price}</Text>
           <Text style={styles.discountPercent}> {discount}</Text>
         </View>
       </View>
