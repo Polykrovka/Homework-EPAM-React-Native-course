@@ -3,7 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import {ButtonSVG} from './Button-svg';
 import IconVector from '../images/icons/Icon-Vector.svg';
 import IconBasket from '../images/icons/Icon-Basket.svg';
-import IconHurn from '../images/icons/Icon-Hurt.svg';
+import IconHurt from '../images/icons/Icon-Hurt.svg';
 
 export const NavBarDetails = () => {
   return (
@@ -11,7 +11,7 @@ export const NavBarDetails = () => {
       <View style={styles.wrapper}>
         <ButtonSVG icon={IconVector}/>
         <View style={styles.rightIconsWrapper}>
-          <ButtonSVG icon={IconHurn}/>
+          <ButtonSVG icon={IconHurt}/>
           <ButtonSVG icon={IconBasket}/>
         </View>
       </View>
