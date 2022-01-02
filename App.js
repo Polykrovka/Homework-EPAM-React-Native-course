@@ -41,16 +41,18 @@ const App = () => {
   }, []);
 
   return (
-    <ScrollView
-      contentContainerStyle={styles.contentContainerStyle}
-      refreshControl={
-        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-      }
-      style={styles.main}>
+    <>
       <NavBar />
-      <SearchInput />
-      <View style={styles.cardsWrapper}>{RenderCards}</View>
-    </ScrollView>
+      <ScrollView
+        contentContainerStyle={styles.contentContainerStyle}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+        style={styles.main}>
+        <SearchInput />
+        <View style={styles.cardsWrapper}>{RenderCards}</View>
+      </ScrollView>
+    </>
     //============================
     // <ScrollView
     //   style={styles.main}
