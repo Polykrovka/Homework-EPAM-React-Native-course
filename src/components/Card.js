@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {View, StyleSheet, Image, Text} from 'react-native';
 import {commonStyles} from '../styles/common-styles';
 
@@ -6,7 +6,8 @@ export function Card(props) {
   const {price, name, display_price} = props.data;
   //This is the formula for calculating the discount. Unfortunately,
   //there are no discounts in our data, but I'll leave it for the future.
-  const discount = ` ${((price - price) / price) * 100} %Off`;
+  // const discount = ` ${((price - price) / price) * 100} %Off`;
+  const discount = useMemo(() => ` ${((price - price) / price) * 100} %Off`, [price]);
   return (
     <View style={styles.card} >
       <View style={styles.cardWrapper}>
