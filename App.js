@@ -73,8 +73,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   cardsWrapper: {
-    width: '90%',
-    marginTop: 20,
+    paddingHorizontal: '5%',
+    paddingTop: 20,
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
