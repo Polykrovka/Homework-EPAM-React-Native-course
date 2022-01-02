@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, StyleSheet, Image, Text, Pressable} from 'react-native';
 import IconNextL from '../images/icons/next-l.svg';
