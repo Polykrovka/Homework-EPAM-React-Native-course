@@ -11,7 +11,7 @@ export function CardLarge(props) {
 
   return (
     <View style={styles.card} >
-      <View style={styles.carusel}>
+      <View style={styles.carousel}>
         <ButtonSVG icon={IconNextL}/>
         <Image style={styles.cardImg} source={require('../images/mobiles/card-1-large.png')}/>
         <ButtonSVG icon={IconNextR}/>
@@ -20,8 +20,8 @@ export function CardLarge(props) {
       <Text style={styles.cardName}>{props.data.name}</Text>
       <View style={styles.priceString}>
         <Text style={styles.discountPrice}>${props.data.discountPrice}   </Text>
-        {props.data.price && <Text style={styles.price}>${props.data.price}</Text>}
-        {props.data.discountPercent && <Text style={styles.discountPercent}>   {props.data.discountPercent}% Off</Text>}
+        {Boolean(props.data.price) && <Text style={styles.price}>${props.data.price}</Text>}
+        {Boolean(props.data.discountPercent) && <Text style={styles.discountPercent}>   {props.data.discountPercent}% Off</Text>}
       </View>
       <Text  style={styles.selectStore} >Select Color</Text>
       <Pressable style={styles.chose} >
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto',
     marginTop: 20,
   },
-  carusel: {
+  carousel: {
     flexDirection: 'row',
     width: '100%',
     justifyContent: 'space-between',
