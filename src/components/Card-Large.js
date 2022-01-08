@@ -4,32 +4,47 @@ import IconNextL from '../images/icons/next-l.svg';
 import IconNextR from '../images/icons/next-r.svg';
 import {ButtonSVG} from './Button-svg';
 import IconBar from '../images/icons/Icon-bar.svg';
-import { commonStyles } from '../styles/common-styles';
+import {commonStyles} from '../styles/common-styles';
 
 export function CardLarge(props) {
-
   return (
-    <View style={styles.card} >
+    <View style={styles.card}>
       <View style={styles.carousel}>
-        <ButtonSVG icon={IconNextL}/>
-        <Image style={styles.cardImg} source={require('../images/mobiles/card-1-large.png')}/>
-        <ButtonSVG icon={IconNextR}/>
+        <ButtonSVG icon={IconNextL} />
+        <Image
+          style={styles.cardImg}
+          source={require('../images/mobiles/card-1-large.png')}
+        />
+        <ButtonSVG icon={IconNextR} />
       </View>
       <IconBar style={styles.IconBar} />
       <Text style={styles.cardName}>{props.data.name}</Text>
       <View style={styles.priceString}>
-        <Text style={styles.discountPrice}>${props.data.discountPrice}   </Text>
-        {Boolean(props.data.price) && <Text style={styles.price}>${props.data.price}</Text>}
-        {Boolean(props.data.discountPercent) && <Text style={styles.discountPercent}>   {props.data.discountPercent}% Off</Text>}
+        <Text style={styles.discountPrice}>${props.data.discountPrice} </Text>
+        {Boolean(props.data.price) && (
+          <Text style={styles.price}>${props.data.price}</Text>
+        )}
+        {Boolean(props.data.discountPercent) && (
+          <Text style={styles.discountPercent}>
+            {' '}
+            {props.data.discountPercent}% Off
+          </Text>
+        )}
       </View>
-      <Text  style={styles.selectStore} >Select Color</Text>
-      <Pressable style={styles.chose} >
+      <Text style={styles.selectStore}>Select Color</Text>
+      <Pressable style={styles.chose}>
         <Text style={styles.choseText}>Blue</Text>
       </Pressable>
       <View style={styles.line} />
-      <Text style={styles.selectStore} >Description</Text>
-      <Text style={styles.description}>The phone features a 6.088 inch HD+ (1560 x 720 pixel) resolution, 283ppi Super AMOLED display, a glass and plastic body, with Corning Gorilla Glass 5 protection on its front as well as its back. It is powered by a Qualcomm Snapdragon 665 SoC. It also has a 2.0, Type-C 1.0 reversible connector.</Text>
-      <Pressable style={styles.buttonAdd} >
+      <Text style={styles.selectStore}>Description</Text>
+      <Text style={styles.description}>
+        The phone features a 6.088 inch HD+ (1560 x 720 pixel) resolution,
+        283ppi Super AMOLED display, a glass and plastic body, with Corning
+        Gorilla Glass 5 protection on its front as well as its back. It is
+        powered by a Qualcomm Snapdragon 665 SoC. It also has a 2.0, Type-C 1.0
+        reversible connector.
+      </Text>
+      <Pressable style={styles.buttonAdd}>
         <Text style={styles.buttonText}>ADD TO CART</Text>
       </Pressable>
     </View>
@@ -95,7 +110,6 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: 'white',
     marginTop: 10,
-
   },
   cardName: {
     marginTop: 5,

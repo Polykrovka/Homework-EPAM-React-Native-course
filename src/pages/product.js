@@ -2,7 +2,7 @@ import React from 'react';
 import {NavBarDetails} from '../components/Nav-bar-details';
 import {StyleSheet, View, ScrollView} from 'react-native';
 import {CardLarge} from '../components/Card-Large';
-import {mockCards} from '../components/mockCards';
+import mockCards from '../components/mockCards';
 
 export const Product = () => {
   return (

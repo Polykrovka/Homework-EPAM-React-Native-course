@@ -3,9 +3,10 @@ import {TouchableHighlight, View} from 'react-native';
 
 export function ButtonSVG(props) {
   const Icon = props.icon;
+  const touch = props.touch;
   return (
-    <TouchableHighlight>
-      <View >
+    <TouchableHighlight onPress={touch}>
+      <View>
         <Icon />
       </View>
     </TouchableHighlight>
