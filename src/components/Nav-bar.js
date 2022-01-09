@@ -3,14 +3,19 @@ import {StyleSheet, Text, View} from 'react-native';
 import {ButtonSVG} from './Button-svg';
 import IconBurgerMenu from '../images/icons/Icon-Burger-Menu.svg';
 import IconBasket from '../images/icons/Icon-Basket.svg';
+import {useNavigation} from '@react-navigation/native';
 
 export const NavBar = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.navBar}>
       <View style={styles.wrapper}>
-        <ButtonSVG icon={IconBurgerMenu}/>
+        <ButtonSVG
+          icon={IconBurgerMenu}
+          touch={() => navigation.openDrawer()}
+        />
         <Text style={styles.titleHeader}> Ecommerce Store </Text>
-        <ButtonSVG icon={IconBasket}/>
+        <ButtonSVG icon={IconBasket} />
       </View>
     </View>
   );

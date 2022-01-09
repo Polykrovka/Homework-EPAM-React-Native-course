@@ -11,18 +11,22 @@ const Drawer = createDrawerNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator
+      {/* <Stack.Navigator
         initialRouteName="MainScreen"
         screenOptions={{
           headerShown: false,
         }}>
         <Stack.Screen name="MainScreen" component={MainScreen} />
         <Stack.Screen name="Product" component={Product} />
-      </Stack.Navigator>
-      {/* <Drawer.Navigator>
+      </Stack.Navigator> */}
+      <Drawer.Navigator
+        initialRouteName="MainScreen"
+        screenOptions={{
+          headerShown: false,
+        }}>
         <Drawer.Screen name="MainScreen" component={MainScreen} />
         <Drawer.Screen name="Product" component={Product} />
-      </Drawer.Navigator> */}
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 };
