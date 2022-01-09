@@ -18,15 +18,6 @@ const App = () => {
         <Stack.Screen name="Product" component={Product} />
       </Stack.Navigator>
     </NavigationContainer>
-    //============================
-    // <ScrollView
-    //   style={styles.main}
-    //   contentContainerStyle={styles.contentContainerStyle}>
-    //   <NavBarDetails />
-    //   <View style={styles.cardsWrapper}>
-    //     <CardLarge data={mockCards[0]} />
-    //   </View>
-    // </ScrollView>
   );
 };
 
