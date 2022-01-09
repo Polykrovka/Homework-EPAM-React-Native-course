@@ -7,6 +7,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import {ProductAdded} from './src/modal/Product-added';
 import {ChooseColor} from './src/modal/Choose-color';
 import {LoginToContinue} from './src/modal/Login-to-continue';
+import {Cart} from './src/pages/Cart';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -22,6 +23,7 @@ const App = () => {
         <Drawer.Group>
           <Drawer.Screen name="MainScreen" component={MainScreen} />
           <Drawer.Screen name="Product" component={Product} />
+          <Drawer.Screen name="Cart" component={Cart} />
         </Drawer.Group>
         <Stack.Group screenOptions={{presentation: 'modal'}}>
           <Stack.Screen name="Product-added" component={ProductAdded} />
