@@ -1,15 +1,18 @@
 import React from 'react';
 import {StyleSheet, View, Text, Pressable} from 'react-native';
-import IconAdded from '../images/icons/Icon-Added.svg';
+import IconSelect from '../images/icons/Icon-Select.svg';
 import {commonStyles} from '../styles/common-styles';
 import {useNavigation} from '@react-navigation/native';
 
-export const ProductAdded = () => {
+export const ChooseColor = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <IconAdded style={styles.icon} />
-      <Text style={styles.title}>Product added to your cart</Text>
+      <IconSelect style={styles.icon} />
+      <Text style={styles.title}>Select color</Text>
+      <Text style={styles.discription}>
+        Please select your color to add this item in your cart
+      </Text>
       <Pressable style={styles.button} onPress={() => navigation.goBack()}>
         <Text style={styles.buttonText}>OK</Text>
       </Pressable>
@@ -21,10 +24,10 @@ const styles = StyleSheet.create({
   container: {
     width: '90%',
     backgroundColor: 'white',
-    height: 225,
+    height: 275,
     alignSelf: 'center',
     alignItems: 'center',
-    marginTop: '45%',
+    marginTop: '40%',
     borderRadius: 5,
   },
   icon: {
@@ -50,5 +53,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 10,
     color: 'white',
+  },
+  discription: {
+    width: '55%',
+    fontSize: 15,
+    textAlign: 'center',
+    marginTop: 10,
   },
 });

@@ -5,6 +5,8 @@ import {MainScreen} from './src/pages/Main-screen';
 import {Product} from './src/pages/Product';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {ProductAdded} from './src/modal/Product-added';
+import {ChooseColor} from './src/modal/Choose-color';
+import {LoginToContinue} from './src/modal/Login-to-continue';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -23,6 +25,8 @@ const App = () => {
         </Drawer.Group>
         <Stack.Group screenOptions={{presentation: 'modal'}}>
           <Stack.Screen name="Product-added" component={ProductAdded} />
+          <Stack.Screen name="Select-color" component={ChooseColor} />
+          <Stack.Screen name="Login-to-continue" component={LoginToContinue} />
         </Stack.Group>
       </Drawer.Navigator>
     </NavigationContainer>
