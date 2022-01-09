@@ -5,8 +5,10 @@ import IconNextR from '../images/icons/next-r.svg';
 import {ButtonSVG} from './Button-svg';
 import IconBar from '../images/icons/Icon-bar.svg';
 import {commonStyles} from '../styles/common-styles';
+import {useNavigation} from '@react-navigation/native';
 
 export function CardLarge(props) {
+  const navigation = useNavigation();
   return (
     <View style={styles.card}>
       <View style={styles.carousel}>
@@ -44,7 +46,9 @@ export function CardLarge(props) {
         powered by a Qualcomm Snapdragon 665 SoC. It also has a 2.0, Type-C 1.0
         reversible connector.
       </Text>
-      <Pressable style={styles.buttonAdd}>
+      <Pressable
+        style={styles.buttonAdd}
+        onPress={() => navigation.navigate('Product-added')}>
         <Text style={styles.buttonText}>ADD TO CART</Text>
       </Pressable>
     </View>

@@ -2,13 +2,15 @@ import React from 'react';
 import {StyleSheet, View, Text, Pressable} from 'react-native';
 import IconAdded from '../images/icons/Icon-Added.svg';
 import {commonStyles} from '../styles/common-styles';
+import {useNavigation} from '@react-navigation/native';
 
 export const ProductAdded = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <IconAdded style={styles.icon} />
       <Text style={styles.title}>Product added to your cart</Text>
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button} onPress={() => navigation.goBack()}>
         <Text style={styles.buttonText}>OK</Text>
       </Pressable>
     </View>
