@@ -3,19 +3,23 @@ import {StyleSheet, View, Text, Pressable} from 'react-native';
 import {commonStyles} from '../styles/common-styles';
 import {useNavigation} from '@react-navigation/native';
 import IconAvatar from '../images/icons/Icon-Avatar.svg';
+import {NavBarCart} from '../components/Nav-bar-cart';
 
 export const UnregisteredCart = () => {
   const navigation = useNavigation();
   return (
-    <View style={styles.container}>
-      <IconAvatar style={styles.icon} />
-      <Text style={styles.title}>Login First!</Text>
-      <Text style={styles.discription}>Login first to view your cart</Text>
-      <Pressable style={styles.button} onPress={() => navigation.goBack()}>
-        <Text style={styles.buttonText}>LOGIN NOW</Text>
-      </Pressable>
-      <Text style={styles.signUpLabel}>New here? Sign Up</Text>
-    </View>
+    <>
+      <NavBarCart />
+      <View style={styles.container}>
+        <IconAvatar style={styles.icon} />
+        <Text style={styles.title}>Login First!</Text>
+        <Text style={styles.discription}>Login first to view your cart</Text>
+        <Pressable style={styles.button} onPress={() => navigation.goBack()}>
+          <Text style={styles.buttonText}>LOGIN NOW</Text>
+        </Pressable>
+        <Text style={styles.signUpLabel}>New here? Sign Up</Text>
+      </View>
+    </>
   );
 };
 

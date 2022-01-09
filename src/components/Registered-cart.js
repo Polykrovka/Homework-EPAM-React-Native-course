@@ -3,18 +3,22 @@ import {StyleSheet, View, Text, Pressable} from 'react-native';
 import {commonStyles} from '../styles/common-styles';
 import {useNavigation} from '@react-navigation/native';
 import IconBox from '../images/icons/Icon-Box.svg';
+import {NavBarCart} from '../components/Nav-bar-cart';
 
 export const RegistredCart = () => {
   const navigation = useNavigation();
   return (
-    <View style={styles.container}>
-      <IconBox style={styles.icon} />
-      <Text style={styles.title}>Your Cart is Empty!</Text>
-      <Text style={styles.discription}>Add product in your cart now</Text>
-      <Pressable style={styles.button} onPress={() => navigation.goBack()}>
-        <Text style={styles.buttonText}>SHOP NOW</Text>
-      </Pressable>
-    </View>
+    <>
+      <NavBarCart />
+      <View style={styles.container}>
+        <IconBox style={styles.icon} />
+        <Text style={styles.title}>Your Cart is Empty!</Text>
+        <Text style={styles.discription}>Add product in your cart now</Text>
+        <Pressable style={styles.button} onPress={() => navigation.goBack()}>
+          <Text style={styles.buttonText}>SHOP NOW</Text>
+        </Pressable>
+      </View>
+    </>
   );
 };
 

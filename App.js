@@ -7,12 +7,15 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import {ProductAdded} from './src/modal/Product-added';
 import {ChooseColor} from './src/modal/Choose-color';
 import {LoginToContinue} from './src/modal/Login-to-continue';
-import {Cart} from './src/pages/Cart';
+import {RegistredCart} from './src/components/Registered-cart';
+import {UnregisteredCart} from './src/components/Unregistered-cart';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const App = () => {
+  // User registration has not yet been implemented
+  let registered = true;
   return (
     <NavigationContainer>
       <Drawer.Navigator
@@ -23,7 +26,14 @@ const App = () => {
         <Drawer.Group>
           <Drawer.Screen name="MainScreen" component={MainScreen} />
           <Drawer.Screen name="Product" component={Product} />
-          <Drawer.Screen name="Cart" component={Cart} />
+          {registered ? (
+            <Drawer.Screen name="RegistredCart" component={RegistredCart} />
+          ) : (
+            <Drawer.Screen
+              name="UnregisteredCart"
+              component={UnregisteredCart}
+            />
+          )}
         </Drawer.Group>
         <Stack.Group screenOptions={{presentation: 'modal'}}>
           <Stack.Screen name="Product-added" component={ProductAdded} />
