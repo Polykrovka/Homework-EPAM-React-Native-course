@@ -12,22 +12,18 @@ const Drawer = createDrawerNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      {/* <Stack.Navigator
-        initialRouteName="MainScreen"
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <Stack.Screen name="MainScreen" component={MainScreen} />
-        <Stack.Screen name="Product" component={Product} />
-      </Stack.Navigator> */}
       <Drawer.Navigator
         initialRouteName="MainScreen"
         screenOptions={{
           headerShown: false,
         }}>
-        <Drawer.Screen name="MainScreen" component={MainScreen} />
-        <Drawer.Screen name="Product" component={Product} />
-        <Drawer.Screen name="Product-added" component={ProductAdded} />
+        <Drawer.Group>
+          <Drawer.Screen name="MainScreen" component={MainScreen} />
+          <Drawer.Screen name="Product" component={Product} />
+        </Drawer.Group>
+        <Stack.Group screenOptions={{presentation: 'modal'}}>
+          <Stack.Screen name="Product-added" component={ProductAdded} />
+        </Stack.Group>
       </Drawer.Navigator>
     </NavigationContainer>
   );
