@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {MainScreen} from './src/pages/Main-screen';
 import {Product} from './src/pages/Product';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import {ProductAdded} from './src/modal/Product-added';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -26,6 +27,7 @@ const App = () => {
         }}>
         <Drawer.Screen name="MainScreen" component={MainScreen} />
         <Drawer.Screen name="Product" component={Product} />
+        <Drawer.Screen name="Product-added" component={ProductAdded} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
