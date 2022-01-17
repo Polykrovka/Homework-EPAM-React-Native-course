@@ -5,7 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 import IconBox from '../images/icons/Icon-Box.svg';
 import {NavBarCart} from '../components/Nav-bar-cart';
 
-export const RegistredCart = () => {
+export const RegisteredCart = () => {
   const navigation = useNavigation();
   return (
     <>
