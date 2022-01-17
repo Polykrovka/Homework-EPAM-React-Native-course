@@ -1,14 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, View, ScrollView, RefreshControl} from 'react-native';
-import {NavBar} from '../../src/components/Nav-bar';
 import {SearchInput} from '../../src/components/Search-input';
 import {Card} from '../../src/components/Card';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const randomPick = {uri: 'https://picsum.photos/100'};
 const BASE_URL = 'https://demo.spreecommerce.org';
 const API_PATH = `${BASE_URL}/api/v2/storefront/products`;
-const Stack = createNativeStackNavigator();
 
 const wait = timeout => {
   return new Promise(resolve => setTimeout(resolve, timeout));
@@ -40,18 +37,15 @@ export const MainScreen = () => {
   }, []);
 
   return (
-    <>
-      <NavBar />
-      <ScrollView
-        contentContainerStyle={styles.contentContainerStyle}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }
-        style={styles.main}>
-        <SearchInput />
-        <View style={styles.cardsWrapper}>{RenderCards}</View>
-      </ScrollView>
-    </>
+    <ScrollView
+      contentContainerStyle={styles.contentContainerStyle}
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }
+      style={styles.main}>
+      <SearchInput />
+      <View style={styles.cardsWrapper}>{RenderCards}</View>
+    </ScrollView>
   );
 };
 
