@@ -1,23 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, View, Text, Pressable} from 'react-native';
 import CustomTextInput from '../components/CustomTextInput';
 import {useNavigation} from '@react-navigation/native';
 import {commonStyles} from '../styles/common-styles';
 
-function login() {
-  console.log('login');
-}
-
 export const Login = () => {
+  function login(email, pass) {
+    if ((email === 'test', pass === 'test')) {
+      navigation.navigate('MainDrawer');
+    } else {
+      // Animation Error
+    }
+  }
   const navigation = useNavigation();
+  const [email, onChangeEmail] = useState(null);
+  const [pass, onChangePass] = useState(null);
   return (
     <View style={styles.main}>
       <View style={styles.mainWrapper}>
         <Text style={styles.title}>Ecomerce Store</Text>
-        <CustomTextInput label="Email Address" />
-        <CustomTextInput label="Password" />
+        <CustomTextInput label="Email Address" onChange={onChangeEmail} />
+        <CustomTextInput label="Password" onChange={onChangePass} />
         <Text style={styles.fogotPass}>Forgot Password?</Text>
-        <Pressable style={styles.buttonAdd} onPress={() => login()}>
+        <Pressable style={styles.buttonAdd} onPress={() => login(email, pass)}>
           <Text style={styles.buttonText}>SIGN IN</Text>
         </Pressable>
         <Text style={styles.signUp}>Forgot Password?</Text>

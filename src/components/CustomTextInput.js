@@ -1,14 +1,20 @@
 import React from 'react';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
 
-const CustomTextInput = ({label, style, ...props}) => (
-  <View style={styles.container}>
-    <View style={styles.labelContainer}>
-      <Text>{label}</Text>
+function CustomTextInput({label, onChange}) {
+  return (
+    <View style={styles.container}>
+      <View style={styles.labelContainer}>
+        <Text>{label}</Text>
+      </View>
+      <TextInput
+        style={styles.textInput}
+        placeholder="Text"
+        onChangeText={onChange}
+      />
     </View>
-    <TextInput style={styles.textInput} placeholder="Text" />
-  </View>
-);
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
