@@ -3,12 +3,19 @@ import {StyleSheet, View, Text, Pressable} from 'react-native';
 import CustomTextInput from '../components/CustomTextInput';
 import {useNavigation} from '@react-navigation/native';
 import {commonStyles} from '../styles/common-styles';
+import Animated, {useAnimatedStyle, withSpring} from 'react-native-reanimated';
 
 export const Login = () => {
+  const animatedButton = useAnimatedStyle(() => {
+    return {
+      // width: withSpring(100),
+    };
+  });
   function login(email, pass) {
     if ((email === 'test', pass === 'test')) {
       navigation.navigate('MainDrawer');
     } else {
+      // animatedButton();
       // Animation Error
     }
   }
@@ -22,6 +29,7 @@ export const Login = () => {
         <CustomTextInput label="Email Address" onChange={onChangeEmail} />
         <CustomTextInput label="Password" onChange={onChangePass} />
         <Text style={styles.fogotPass}>Forgot Password?</Text>
+        <Animated.View style={[styles.bar, animatedButton]} />
         <Pressable style={styles.buttonAdd} onPress={() => login(email, pass)}>
           <Text style={styles.buttonText}>SIGN IN</Text>
         </Pressable>
@@ -40,6 +48,11 @@ const styles = StyleSheet.create({
   main: {
     backgroundColor: 'white',
     height: '100%',
+  },
+  bar: {
+    width: '100%',
+    height: 50,
+    backgroundColor: 'blue',
   },
   mainWrapper: {
     alignItems: 'center',
