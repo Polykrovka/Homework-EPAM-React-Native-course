@@ -1,77 +1,41 @@
-import React, {useState, useEffect} from 'react';
-import {StyleSheet, View, ScrollView, RefreshControl} from 'react-native';
-import {NavBar} from './src/components/Nav-bar';
-import {NavBarDetails} from './src/components/Nav-bar-details';
-import {SearchInput} from './src/components/Search-input';
-import {Card} from './src/components/Card';
-import mockCards from './src/components/mockCards';
-import {CardLarge} from './src/components/Card-Large';
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {Product} from './src/pages/Product';
+import {ProductAdded} from './src/modal/Product-added';
+import {ChooseColor} from './src/modal/Choose-color';
+import {LoginToContinue} from './src/modal/Login-to-continue';
+import {createStackNavigator} from '@react-navigation/stack';
+import DrawerNavigator from './src/actions/RootDrowerNavigator';
 
-const BASE_URL = 'https://demo.spreecommerce.org';
-const API_PATH = `${BASE_URL}/api/v2/storefront/products`;
-
-const wait = timeout => {
-  return new Promise(resolve => setTimeout(resolve, timeout));
-};
+const MainStack = createStackNavigator();
 
 const App = () => {
-  const [backData, getBackData] = useState();
-
-  useEffect(() => {
-    fetch(API_PATH)
-      .then(response => response.json())
-      .then(data => getBackData(data));
-  }, []);
-
-  const RenderCards = backData?.data.map(item => (
-    <Card
-      key={item.attributes.name}
-      data={item.attributes}
-      icon={{uri: 'https://picsum.photos/100'}}
-    />
-  ));
-
-  const [refreshing, setRefreshing] = React.useState(false);
-
-  const onRefresh = React.useCallback(() => {
-    setRefreshing(true);
-    wait(2000).then(() => setRefreshing(false));
-  }, []);
-
   return (
-    <ScrollView
-      contentContainerStyle={{alignItems: 'center'}}
-      refreshControl={
-        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-      }
-      style={styles.main}>
-      <NavBar />
-      <SearchInput />
-      <View style={styles.cardsWrapper}>{RenderCards}</View>
-    </ScrollView>
-    //============================
-    // <ScrollView
-    //   style={styles.main}
-    //   contentContainerStyle={{alignItems: 'center'}}>
-    //   <NavBarDetails />
-    //   <View style={styles.cardsWrapper}>
-    //     <CardLarge data={mockCards[0]} />
-    //   </View>
-    // </ScrollView>
+    <NavigationContainer>
+      <MainStack.Navigator initialRouteName="MainDrawer">
+        <MainStack.Group>
+          <MainStack.Screen
+            name="MainDrawer"
+            component={DrawerNavigator}
+            options={{headerShown: false}}
+          />
+        </MainStack.Group>
+
+        <MainStack.Group screenOptions={{headerShown: false}}>
+          <MainStack.Screen name="Product" component={Product} />
+        </MainStack.Group>
+
+        <MainStack.Group screenOptions={{presentation: 'modal'}}>
+          <MainStack.Screen name="Product-added" component={ProductAdded} />
+          <MainStack.Screen name="Select-color" component={ChooseColor} />
+          <MainStack.Screen
+            name="Login-to-continue"
+            component={LoginToContinue}
+          />
+        </MainStack.Group>
+      </MainStack.Navigator>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  main: {
-    backgroundColor: 'white',
-  },
-  cardsWrapper: {
-    width: '90%',
-    marginTop: 20,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-  },
-});
 
 export default App;

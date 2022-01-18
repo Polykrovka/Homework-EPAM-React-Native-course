@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import {StyleSheet, View, TextInput} from 'react-native';
 import {commonStyles} from '../styles/common-styles';
