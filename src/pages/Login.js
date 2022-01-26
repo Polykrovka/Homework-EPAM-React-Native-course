@@ -4,6 +4,7 @@ import CustomTextInput from '../components/CustomTextInput';
 import {useNavigation} from '@react-navigation/native';
 import {commonStyles} from '../styles/common-styles';
 import Animated, {useAnimatedStyle, withSpring} from 'react-native-reanimated';
+import ButtonAnimation from '../components/ButtonAnimation';
 
 export const Login = () => {
   const animatedButton = useAnimatedStyle(() => {
@@ -29,10 +30,11 @@ export const Login = () => {
         <CustomTextInput label="Email Address" onChange={onChangeEmail} />
         <CustomTextInput label="Password" onChange={onChangePass} />
         <Text style={styles.fogotPass}>Forgot Password?</Text>
-        <Animated.View style={[styles.bar, animatedButton]} />
-        <Pressable style={styles.buttonAdd} onPress={() => login(email, pass)}>
+        {/* <Animated.View style={[styles.bar, animatedButton]} /> */}
+        {/* <Pressable style={styles.buttonAdd} onPress={() => login(email, pass)}>
           <Text style={styles.buttonText}>SIGN IN</Text>
-        </Pressable>
+        </Pressable> */}
+        <ButtonAnimation styles={styles} label={'SIGN IN'} onPress={login} />
         <Text style={styles.signUp}>Forgot Password?</Text>
         <Pressable
           style={styles.skipButton}
