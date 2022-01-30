@@ -11,7 +11,7 @@ const RootDrawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
   // User registration has not yet been implemented
-  let registered = true;
+  let registered = false;
   const navigation = useNavigation();
   return (
     <RootDrawer.Navigator initialRouteName="MainScreen">

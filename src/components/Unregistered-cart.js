@@ -14,7 +14,9 @@ export const UnregisteredCart = () => {
         <IconAvatar style={styles.icon} />
         <Text style={styles.title}>Login First!</Text>
         <Text style={styles.discription}>Login first to view your cart</Text>
-        <Pressable style={styles.button} onPress={() => navigation.goBack()}>
+        <Pressable
+          style={styles.button}
+          onPress={() => navigation.navigate('Login')}>
           <Text style={styles.buttonText}>LOGIN NOW</Text>
         </Pressable>
         <Text style={styles.signUpLabel}>New here? Sign Up</Text>

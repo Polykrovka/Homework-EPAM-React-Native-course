@@ -6,13 +6,14 @@ import {ChooseColor} from './src/modal/Choose-color';
 import {LoginToContinue} from './src/modal/Login-to-continue';
 import {createStackNavigator} from '@react-navigation/stack';
 import DrawerNavigator from './src/actions/RootDrowerNavigator';
+import {Login} from './src/pages/Login';
 
 const MainStack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <MainStack.Navigator initialRouteName="MainDrawer">
+      <MainStack.Navigator initialRouteName="Login">
         <MainStack.Group>
           <MainStack.Screen
             name="MainDrawer"
@@ -23,6 +24,7 @@ const App = () => {
 
         <MainStack.Group screenOptions={{headerShown: false}}>
           <MainStack.Screen name="Product" component={Product} />
+          <MainStack.Screen name="Login" component={Login} />
         </MainStack.Group>
 
         <MainStack.Group screenOptions={{presentation: 'modal'}}>
