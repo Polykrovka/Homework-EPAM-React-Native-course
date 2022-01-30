@@ -55,9 +55,4 @@ const ButtonAnimation = props => {
   );
 };
 
-// const styles = StyleSheet.create({
-//   dots: {
-//     fontSize: 30,
-//   },
-// });
 export default ButtonAnimation;
