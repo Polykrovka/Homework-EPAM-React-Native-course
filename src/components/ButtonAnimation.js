@@ -21,6 +21,7 @@ const ButtonAnimation = props => {
   });
 
   let scaleValue = new Animated.Value(1);
+
   function scale() {
     Animated.timing(scaleValue, {
       toValue: 200,

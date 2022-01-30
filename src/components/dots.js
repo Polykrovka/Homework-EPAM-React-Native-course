@@ -5,7 +5,14 @@ import Animated from 'react-native-reanimated';
 const {interpolateNode, Extrapolate} = Animated;
 const size = 16;
 
-const Dots = ({progress}) => {
+const Dots = () => {
+  let progress = new Animated.Value(0);
+  Animated.timing(progress, {
+    toValue: 1,
+    duration: 1000,
+    useNativeDriver: true,
+  }).start();
+
   const bubbles = [0, 1, 2];
   const delta = 1 / bubbles.length;
   return (
