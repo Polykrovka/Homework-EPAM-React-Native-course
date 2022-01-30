@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Dots from './dots';
 
 import {
   Text,
@@ -8,23 +9,6 @@ import {
   StyleSheet,
 } from 'react-native';
 
-let scaleValue = new Animated.Value(0);
-
-function scale() {
-  scaleValue.setValue(0);
-  Animated.timing(scaleValue, {
-    toValue: 1,
-    duration: 1000,
-    easing: Easing.easeOutBack,
-    useNativeDriver: true,
-  }).start();
-}
-
-const buttonScale = scaleValue.interpolate({
-  inputRange: [0, 0.5, 1],
-  outputRange: [1, 0.165, 0.2],
-});
-
 const ButtonAnimation = props => {
   const [content, setContent] = useState(
     <Text style={[props.styles ? props.styles.buttonText : '']}>
@@ -32,23 +16,39 @@ const ButtonAnimation = props => {
     </Text>,
   );
 
+  let [width, setWidth] = useState({
+    width: '100%',
+  });
+
+  let scaleValue = new Animated.Value(1);
+  function scale() {
+    Animated.timing(scaleValue, {
+      toValue: 200,
+      duration: 1000,
+      easing: Easing.easeOutBack,
+      useNativeDriver: false,
+    }).start();
+
+    setWidth({
+      width: buttonScale,
+    });
+  }
+
   function onPress() {
-    setContent(null);
     scale();
+    setContent(<Dots />);
     // props.onPress();
   }
 
-  // console.log(buttonContent);
+  const buttonScale = scaleValue.interpolate({
+    inputRange: [100, 150, 200],
+    outputRange: [240, 150, 100],
+  });
 
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <Animated.View
-        style={[
-          props.styles ? props.styles.buttonAdd : '',
-          {
-            transform: [{scaleX: buttonScale}],
-          },
-        ]}>
+        style={[props.styles ? props.styles.buttonAdd : '', width]}>
         {content}
       </Animated.View>
     </TouchableWithoutFeedback>
